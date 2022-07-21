@@ -3,8 +3,8 @@ export const validateCSV = (file) => {
   const hasTotalAsHeader = values[0] === "Total";
   const lastItemIsEmptyOrInt =
     values[values.length - 1] === "" ||
-    !isNaN(parseInt(values[values.length - 1]));
-  const filteredList = values.filter((item) => !isNaN(parseInt(item)));
+    !isNaN(Number(values[values.length - 1]));
+  const filteredList = values.filter((item) => !isNaN(Number(item)));
   values.splice(0, 1);
 
   return (
