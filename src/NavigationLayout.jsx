@@ -1,20 +1,32 @@
+import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Layout, Menu, PageHeader } from "antd";
+import { Layout, Menu, PageHeader, Grid, Drawer } from "antd";
 import {
   UserOutlined,
   FileImageOutlined,
   FileTextOutlined,
+  MenuOutlined,
 } from "@ant-design/icons";
-const { Header, Content, Footer, Sider } = Layout;
+import Logo from "./assets/logo.png";
+
+const { useBreakpoint } = Grid;
 
 export const NavigationLayout = ({ children }) => {
+  const [openDrawer, setOpenDrawer] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const currentPath = pathname.replace("/", "") || "home";
+  const screens = useBreakpoint();
 
   const onClick = ({ key }) => {
     navigate(key);
   };
+
+  const toggleDrawer = () => {
+    setOpenDrawer((open) => !open);
+  };
+
+  const closeDrawer = () => setOpenDrawer(false);
 
   const menuItems = [
     {
@@ -37,28 +49,56 @@ export const NavigationLayout = ({ children }) => {
     },
   ];
 
+  const showDrawer = !screens.md;
+  const onBackPageHeader = showDrawer ? toggleDrawer : undefined;
+
   return (
     <Layout style={{ height: "100%" }}>
-      <Sider breakpoint="md" collapsedWidth="0">
-        <div className="logo" />
+      <Layout.Sider
+        width={250}
+        breakpoint="md"
+        collapsedWidth="0"
+        trigger={null}
+        collapsed={showDrawer}
+      >
+        <div className="logo">
+          <img src={Logo} width={200} />
+        </div>
         <Menu
           theme="dark"
           mode="inline"
           defaultSelectedKeys={[currentPath]}
           items={menuItems}
         />
-      </Sider>
+      </Layout.Sider>
+      {showDrawer && (
+        <Drawer
+          title="Blockchain Studio Challenge"
+          placement="left"
+          onClose={closeDrawer}
+          visible={openDrawer}
+        >
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={[currentPath]}
+            items={menuItems}
+            onClick={closeDrawer}
+          />
+        </Drawer>
+      )}
       <Layout>
-        <Header
+        <Layout.Header
           className="site-layout-sub-header-background"
           style={{ padding: 0 }}
         >
           <PageHeader
+            backIcon={<MenuOutlined />}
             title={currentPath.toUpperCase()}
             subTitle="This is a subtitle"
+            onBack={onBackPageHeader}
           />
-        </Header>
-        <Content
+        </Layout.Header>
+        <Layout.Content
           style={{
             margin: "24px 16px 0",
             height: "100%",
@@ -69,18 +109,19 @@ export const NavigationLayout = ({ children }) => {
             style={{
               padding: 24,
               minHeight: 360,
+              overflow: "scroll",
             }}
           >
             {children}
           </div>
-        </Content>
-        <Footer
+        </Layout.Content>
+        <Layout.Footer
           style={{
             textAlign: "center",
           }}
         >
           Blockchain Studio ©2022
-        </Footer>
+        </Layout.Footer>
       </Layout>
     </Layout>
   );
