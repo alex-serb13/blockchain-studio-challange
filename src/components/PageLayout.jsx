@@ -6,7 +6,7 @@ import { NavigationSidebar } from "./NavigationSidebar";
 import { PageHeader } from "./PageHeader";
 import "./style.css";
 
-export const NavigationLayout = ({ children }) => {
+export const PageLayout = ({ children }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
