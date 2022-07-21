@@ -14,7 +14,7 @@ export const Home = () => {
             When uploading CSV files the format will be checked so{" "}
             <Text strong>
               any other format (more than one column, column with another name
-              than "Total", rows with values other than numbers) will be
+              than 'Total', rows with values other than numbers) will be
               rejected
             </Text>
             .

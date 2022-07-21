@@ -47,6 +47,10 @@
   height: inherit;
 }
 
+.sheets-table .ant-table-row {
+  cursor: pointer;
+}
+
 /* <---------- CARD IMAGE ----------> */
 
 .card-image-card {
