@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Layout, Grid } from "antd";
 
-import { NavigationSidebar } from "./navigation/NavigationSidebar";
+import { NavigationSidebar } from "../navigation/NavigationSidebar";
 import { PageHeader } from "./PageHeader";
 import "./style.css";
 
