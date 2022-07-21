@@ -45,8 +45,8 @@ export const SheetsTable = ({ sheets, setSelectedSheet, setVisible }) => {
 
   return (
     <Table
+      className="sheets-table"
       dataSource={sheets}
-      style={{ height: "inherit" }}
       pagination={false}
       onRow={onRow}
       columns={columns}
