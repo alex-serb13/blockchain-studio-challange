@@ -11,7 +11,7 @@ export const Sheets = () => {
   const sheets = JSON.parse(storedSheets);
 
   if (!sheets.length) {
-    return <EmptyPage description={<span>No Sheets Uploaded Yet</span>} />;
+    return <EmptyPage description="No Sheets Uploaded Yet" />;
   }
 
   return (
