@@ -2,8 +2,15 @@ import { message } from "antd";
 import { validateCSV } from "../utils/validateCSV";
 import { saveToStorage } from "../utils/saveToStorage";
 
+const allowdFormats = ["image/png", "text/csv"];
+
 export const customUploadRequest = ({ file, onSuccess, onError }) => {
   const reader = new FileReader();
+
+  if (!allowdFormats.includes(file.type)) {
+    message.error(`The format of '${file.name}' is not supported.`);
+    return onError();
+  }
 
   reader.addEventListener("load", () => {
     if (file.type === "image/png") {

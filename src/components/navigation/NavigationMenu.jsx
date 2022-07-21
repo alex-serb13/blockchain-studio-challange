@@ -1,6 +1,6 @@
 import { Menu } from "antd";
 import {
-  UserOutlined,
+  HomeOutlined,
   FileImageOutlined,
   FileTextOutlined,
 } from "@ant-design/icons";
@@ -8,7 +8,7 @@ import {
 const menuItems = [
   {
     key: "home",
-    icon: <UserOutlined />,
+    icon: <HomeOutlined />,
     label: `Home`,
   },
   {
