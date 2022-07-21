@@ -6,6 +6,7 @@ import { saveToStorage } from "../utils/saveToStorage";
 
 const props = {
   name: "file",
+  showUploadList: false,
   customRequest: ({ file, onSuccess, onError }) => {
     const reader = new FileReader();
 

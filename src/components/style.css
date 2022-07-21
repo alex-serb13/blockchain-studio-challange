@@ -61,3 +61,15 @@
 .card-image {
   height: 200px;
 }
+
+/* <---------- HOME PAGE ----------> */
+
+.home-container {
+  display: flex;
+  height: 100%;
+}
+
+.home-introduction-container {
+  display: flex;
+  align-items: center;
+}
