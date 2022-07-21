@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ModalTable } from "../components/ModalTable";
-import { SheetsTable } from "../components/SheetsTable";
+import { ModalTable } from "../components/tables/ModalTable";
+import { SheetsTable } from "../components/tables/SheetsTable";
 import { EmptyPage } from "../components/EmptyPage";
 
 export const Sheets = () => {

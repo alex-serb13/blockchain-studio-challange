@@ -1,6 +1,6 @@
 import { Layout, Drawer } from "antd";
 import { NavigationMenu } from "./NavigationMenu";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 
 const NavigationLogo = () => {
   return (

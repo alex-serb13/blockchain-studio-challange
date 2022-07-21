@@ -24,7 +24,12 @@ export const ModalTable = ({ selectedSheet, visible, setVisible }) => {
       onCancel={() => setVisible(false)}
       footer={null}
     >
-      <Table columns={columns} dataSource={tableFormat} sticky />
+      <Table
+        columns={columns}
+        dataSource={tableFormat}
+        pagination={false}
+        sticky
+      />
     </Modal>
   );
 };
