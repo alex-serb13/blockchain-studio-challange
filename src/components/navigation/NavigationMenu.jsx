@@ -23,7 +23,12 @@ const menuItems = [
   },
 ];
 
-export const NavigationMenu = ({ onClick, defaultSelectedKeys, theme }) => {
+export const NavigationMenu = ({
+  onClick,
+  defaultSelectedKeys,
+  theme,
+  selectedKeys,
+}) => {
   return (
     <Menu
       mode="inline"
@@ -31,6 +36,7 @@ export const NavigationMenu = ({ onClick, defaultSelectedKeys, theme }) => {
       items={menuItems}
       onClick={onClick}
       defaultSelectedKeys={defaultSelectedKeys}
+      selectedKeys={selectedKeys}
     />
   );
 };

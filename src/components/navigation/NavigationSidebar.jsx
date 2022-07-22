@@ -31,6 +31,7 @@ export const NavigationSidebar = ({
         <NavigationMenu
           theme="dark"
           defaultSelectedKeys={[currentPath]}
+          selectedKeys={[currentPath]}
           onClick={onClickMenu}
         />
       </Layout.Sider>
@@ -43,6 +44,7 @@ export const NavigationSidebar = ({
         >
           <NavigationMenu
             defaultSelectedKeys={[currentPath]}
+            selectedKeys={[currentPath]}
             onClick={onClickDrawerMenu}
           />
         </Drawer>
