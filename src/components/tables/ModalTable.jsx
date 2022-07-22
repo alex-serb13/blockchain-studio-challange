@@ -1,4 +1,5 @@
 import { Table, Modal } from "antd";
+import { mapSheetToDataSource } from "../../utils/mapSheetToDataSource";
 
 const columns = [
   {
@@ -10,10 +11,7 @@ const columns = [
 ];
 
 export const ModalTable = ({ selectedSheet, visible, setVisible }) => {
-  const tableFormat = selectedSheet?.content
-    ?.split("\n")
-    ?.filter((item) => !isNaN(parseInt(item)))
-    ?.map((item) => ({ total: item }));
+  const data = mapSheetToDataSource(selectedSheet.content);
   const modalDate = new Date(selectedSheet.uploadDate);
 
   return (
@@ -24,12 +22,7 @@ export const ModalTable = ({ selectedSheet, visible, setVisible }) => {
       onCancel={() => setVisible(false)}
       footer={null}
     >
-      <Table
-        columns={columns}
-        dataSource={tableFormat}
-        pagination={false}
-        sticky
-      />
+      <Table columns={columns} dataSource={data} pagination={false} sticky />
     </Modal>
   );
 };

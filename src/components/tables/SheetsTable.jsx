@@ -1,4 +1,5 @@
 import { Table, Button } from "antd";
+import { calculateFileTotal } from "../../utils/calculateFileTotal";
 
 const columns = [
   {
@@ -12,16 +13,7 @@ const columns = [
     dataIndex: "content",
     key: "content",
     render: (text) => {
-      const contentList = text
-        .split("\n")
-        .filter((item) => !isNaN(parseInt(item)));
-      const initialValue = 0;
-      const total = contentList.reduce(
-        (acc, value) => acc + parseInt(value),
-        initialValue
-      );
-
-      return <span>{total}</span>;
+      return <span>{calculateFileTotal(text)}</span>;
     },
   },
   {
