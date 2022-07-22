@@ -1,11 +1,11 @@
-import { Table } from "antd";
+import { Table, Button } from "antd";
 
 const columns = [
   {
     title: "Name",
     dataIndex: "name",
     key: "name",
-    render: (text) => <a>{text}</a>,
+    render: (text) => <Button type="link">{text}</Button>,
   },
   {
     title: "Total",

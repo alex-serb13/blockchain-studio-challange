@@ -5,7 +5,7 @@ import logo from "../../assets/logo.png";
 const NavigationLogo = () => {
   return (
     <div data-testid="navigation-logo" className="logo">
-      <img src={logo} width={200} />
+      <img alt="logo" src={logo} width={200} />
     </div>
   );
 };
