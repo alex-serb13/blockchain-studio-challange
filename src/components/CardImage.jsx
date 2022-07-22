@@ -1,4 +1,4 @@
-import { Image, Card } from "antd";
+import { Image, Card, Tooltip } from "antd";
 
 export const CardImage = ({ item }) => {
   return (
@@ -10,7 +10,7 @@ export const CardImage = ({ item }) => {
         </div>
       }
     >
-      <Card.Meta title={item.name} />
+      <Card.Meta title={<Tooltip title={item.name}>{item.name}</Tooltip>} />
     </Card>
   );
 };
