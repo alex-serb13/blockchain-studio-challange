@@ -64,6 +64,7 @@
 
 .card-image {
   height: 200px;
+  width: max-content;
 }
 
 /* <---------- HOME PAGE ----------> */
